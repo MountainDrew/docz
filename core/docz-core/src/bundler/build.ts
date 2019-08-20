@@ -9,6 +9,6 @@ export const build = async (dist: string) => {
   const publicDir = path.join(paths.docz, 'public')
 
   sh.cd(paths.docz)
-  spawn.sync('yarn', ['build'], { stdio: 'inherit' })
+  spawn.sync('npm', ['run', 'build'], { stdio: 'inherit' })
   await fs.copy(publicDir, dist)
 }

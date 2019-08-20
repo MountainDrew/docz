@@ -7,6 +7,8 @@ import * as paths from '../../../config/paths'
 
 export const execDevCommand = async ({ args }: ServerMachineCtx) => {
   sh.cd(paths.docz)
-  spawn('yarn', ['dev', '--port', `${args.port}`], { stdio: 'inherit' })
+  spawn('npm', ['run', 'dev', '--', '--port', `${args.port}`], {
+    stdio: 'inherit',
+  })
   openBrowser(`http://${args.host}:${args.port}`)
 }
